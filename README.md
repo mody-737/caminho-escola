@@ -4,6 +4,6 @@ Imagine um jogo simples, mas cheio de significado, onde o jogador enfrenta um do
 
 Com três fases progressivamente mais difíceis, você não só se diverte, mas também se envolve em uma narrativa que destaca a importância da educação. E mais: você pode personalizar seu personagem e até preparar sua mochila, adicionando materiais escolares pela barra de pesquisa, tornando cada partida única e pessoal.
 
-Link do jogo: 
+Link do jogo: https://mody-737.github.io/caminho-escola/
 
 Se divirtam! ;D
