@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho da escola</title>
+    <link rel="stylesheet" href="./style_base.css">
+    <link rel="stylesheet" href="style_fases.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <section class="overlay" style>
+
+        <!-- Menu inicial de apresentação -->
+        <div class="menu" id="main-menu" style>
+            <h1 class="game-name">Caminho da escola</h1>
+            <p class="instructions">É verdade que ir à escola pode ser difícil às vezes, mas não desista, não vai estar perdendo nada em fazer esse esforço!<br>Ajude seu personagem a ir para a escola guiando ele com o seu mouse. <b>Não se desvie do caminho da escola!</b></p>
+            <div class="menu-buttons">
+                <span class="menu-btn start" onclick="preStart()">Preparar</span>
+            </div>
+        </div>
+
+
+        <!-- Instruções, nome do personagem, materiais -->
+        <div class="menu hid" id="pre-start" style="display: none;">
+            <h1 class="game-name">Caminho da escola</h1>
+            <p class="instructions">Antes de sair, vamos nos preparar. Escolha o nome do seu personagem e coloque na sua mochila os materiais escolares básicos.</p>
+            <div class="inputs">
+                <input id="dude-name" type="text" placeholder="Nome do personagem">
+                <div class="search">
+                    <div class="search-bar">
+                        <input id="scholl-data" type="text" placeholder="Materiais escolares" onkeyup="showSuggestions()">
+                    </div>
+                    <div id="suggestions" class="suggestions-box"></div>
+                </div>
+            </div> 
+            <div class="menu-buttons">
+                <span class="menu-btn start" onclick="start(1)">Iniciar</span>
+            </div>
+        </div>
+
+
+        <!-- Menu de seleção de fase -->
+        <div class="menu hid" id="stage" style="display: none;">
+            <h1 class="game-name">Seletor de estágio</h1>
+            <p class="instructions">Escolha o dia (dificuldade) que você quer guiar seu personagem até a escola.</p>
+            <div class="menu-buttons">
+                <span class="menu-btn fase" onclick="start(1)">1</span>
+                <span class="menu-btn fase" onclick="start(2)">2</span>
+                <span class="menu-btn fase" onclick="start(3)">3</span>
+              </div>
+        </div>
+
+        
+        <!-- Popup perdeu -->
+        <div class="menu hid" id="lose" style="display: none;">
+            <h1 class="game-name">Você perdeu!</h1>
+            <p class="instructions">Não desista de ir pra escola! Ainda dá tempo!</p>
+            <div class="menu-buttons">
+                <span class="menu-btn fase" onclick="restart()">Tentar novamente</span>
+                <span class="menu-btn fase" onclick="stage()">Escolher fase</span>
+            </div>
+        </div>
+
+        
+        <!-- Popup Venceu -->
+        <div class="menu hid" id="win" style="display: none;">
+            <h1 class="game-name">Você venceu!</h1>
+            <p class="instructions" id="name-rec"></p>
+            <div class="menu-buttons">
+                <span class="menu-btn fase" onclick="next()">Próxima fase</span>
+                <span class="menu-btn fase" onclick="stage()">Escolher fase</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Fase 1 -->
+    <section class="fases" id="fase-1" style="display:none">
+
+        <div class="colisions wall1"></div>
+        <div class="colisions wall2"></div>
+        <div class="colisions wall3"></div>
+        <div class="colisions wall4"></div>
+        <div class="colisions det flower1"></div>
+        <div class="colisions det flower2"></div>
+        <div class="colisions det rock1"></div>
+        <div class="colisions det rock2"></div>
+        <div class="colisions det mushroom"></div>
+        <div class="colisions det bush"></div>
+        <div class="colisions det deadgrass"></div>
+
+    </section>
+
+
+    <!-- Fase 2 -->
+    <section class="fases" id="fase-2" style="display:none">
+
+        <div class="colisions wall1"></div>
+        <div class="colisions wall2"></div>
+        <div class="colisions wall3"></div>
+        <div class="colisions wall4"></div>
+        <div class="colisions wall5"></div>
+        <div class="colisions det flower1"></div>
+        <div class="colisions det flower2"></div>
+        <div class="colisions det rock1"></div>
+        <div class="colisions det rock2"></div>
+        <div class="colisions det mushroom"></div>
+        <div class="colisions det bush"></div>
+        <div class="colisions det deadgrass"></div>
+
+    </section>
+
+
+    <!-- Fase 3 -->
+    <section class="fases" id="fase-3" style="display:none">
+
+        <div class="colisions wall1"></div>
+        <div class="colisions wall2"></div>
+        <div class="colisions wall3"></div>
+        <div class="colisions wall4"></div>
+        <div class="colisions wall5"></div>
+        <div class="colisions wall6"></div>
+        <div class="colisions det flower1"></div>
+        <div class="colisions det flower2"></div>
+        <div class="colisions det rock1"></div>
+        <div class="colisions det rock2"></div>
+        <div class="colisions det mushroom"></div>
+        <div class="colisions det bush"></div>
+        <div class="colisions det deadgrass"></div>
+
+    </section>
+
+
+    <!-- Elementos comuns às fases -->
+    <div class="places home" style="display:none">
+        <div class="colisions det homee"></div>
+    </div>
+    <div class="places school" style="display:none">
+        <div class="colisions det schooll"></div>
+    </div>
+    <div class="start-btn" style="display:none"></div>
+    <div class="dude" style="display:none"></div>
+
+    
+
+    <!-- Lista de materiais escolares -->
+    <div id="resultContainer" style="display: none;">
+        <h3 class="mat">Materiais Escolhidos:</h3>
+    </div>
+
+    
+    <!-- Rodapé -->
+    <footer>
+        <p class="credit">Feito por Roger para a Imersão Dev Alura | Google Gemini. <a href="./credits.html">Créditos Assets</a></p>
+    </footer>
+    
+</body>
+
+<script src="./script_base.js"></script>
+<script src="./script_fases.js"></script>
+
+</html>
