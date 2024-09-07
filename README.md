@@ -1,4 +1,4 @@
-#"De Casa até a Escola: A Jornada da Educação"
+# "De Casa até a Escola: A Jornada da Educação"
 
 Imagine um jogo simples, mas cheio de significado, onde o jogador enfrenta um dos maiores desafios da vida real: o caminho até a escola. Em "De Casa até a Escola", você controla um personagem que deve permanecer no caminho certo, superando obstáculos e desafios crescentes a cada fase. Mas não é apenas um jogo — é um lembrete poderoso de que, apesar das dificuldades, a educação tem o poder de mudar vidas.
 
